@@ -5,21 +5,22 @@ const url =
 
 fetch(url)
   .then(response => response.text())
-  .then(csv => {
+  .then(texto => {
 
-    const filas = csv.trim().split("\n");
+    const filas = texto.trim().split("\n");
 
     let html = "<table border='1'>";
 
-    filas.forEach(fila => {
+    filas.slice(0,10).forEach(fila => {
 
       html += "<tr>";
 
-      fila.split(",").forEach(celda => {
+      fila.split("\t").forEach(celda => {
         html += `<td>${celda}</td>`;
       });
 
       html += "</tr>";
+
     });
 
     html += "</table>";
