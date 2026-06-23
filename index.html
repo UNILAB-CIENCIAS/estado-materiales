@@ -2,14 +2,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> UNIDAD DE LABORATORIOS </title>
+<title>Mi Inventario</title>
 </head>
 
 <body>
 
-<h1> Hola, unidad! </h1>
+<h1>Datos de Google Sheets</h1>
 
-<p> Primera prueba. </p>
+<pre id="resultado">Cargando...</pre>
+
+<script>
+
+const url =
+"https://docs.google.com/spreadsheets/d/1M6igSdR8lXQvjEQxmt1LWeUvQB1gy1rlyKtPRzDoodA/export?format=csv&gid=529707319";
+
+fetch(url)
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("resultado").textContent = data;
+  });
+
+</script>
 
 </body>
 </html>
