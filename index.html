@@ -1,6 +1,18 @@
-<script>
+<!DOCTYPE html>
+<html>
 
-alert("Inicio");
+<head>
+<meta charset="UTF-8">
+<title>Inventario</title>
+</head>
+
+<body>
+
+<div id="resultado">
+Cargando...
+</div>
+
+<script>
 
 const url =
 "https://docs.google.com/spreadsheets/d/1M6igSdR8lXQvjEQxmt1LWeUvQB1gy1rlyKtPRzDoodA/export?format=csv&gid=529707319";
@@ -9,13 +21,14 @@ fetch(url)
   .then(response => response.text())
   .then(texto => {
 
-    alert("Recibidos " + texto.length + " caracteres");
-
     document.getElementById("resultado").innerHTML =
-      "<h2>FUNCIONA</h2><pre>" +
+      "<pre>" +
       texto.substring(0,1000) +
       "</pre>";
 
   });
 
 </script>
+
+</body>
+</html>
